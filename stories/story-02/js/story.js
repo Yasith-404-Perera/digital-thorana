@@ -37,11 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (video && container && overlay && replayBtn) {
     container.classList.add('visible');
-
     video.addEventListener('ended', () => {
       overlay.classList.add('visible');
     });
-
     replayBtn.addEventListener('click', () => {
       overlay.classList.remove('visible');
       video.currentTime = 0;

@@ -4,7 +4,7 @@
    ============================================================ */
 
 /* ── Current year in footer ── */
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('yr').textContent = new Date().getFullYear();
 
 /* ============================================================
    PARTICLE SYSTEM

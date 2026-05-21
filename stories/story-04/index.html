@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>සිවි ජාතකය — Digital Thorana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Sinhala:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/shared-css/thorana-frame.css" />
+  <link rel="stylesheet" href="css/story.css" />
+</head>
+<body>
+
+  <div class="thorana-frame" aria-hidden="true">
+    <div class="thorana-frame__strip thorana-frame__strip--top"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--bottom"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--left"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--right"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tr"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--bl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--br"></div>
+  </div>
+
+  <canvas id="lightsCanvas"></canvas>
+  <div class="story-bg-glow" aria-hidden="true"></div>
+
+  <div class="thorana-content">
+
+    <a class="back-btn" href="../../index.html">
+      ← ප්‍රධාන පිටුවට / Main Menu
+    </a>
+
+    <header class="story-header">
+      <span class="dharma-wheel" aria-hidden="true">☸</span>
+      <h1 class="story-title">සිවි ජාතකය</h1>
+      <p class="story-subtitle">Sivi Jataka · The Perfect Offering</p>
+    </header>
+
+    <div class="story-audio">
+      <span>🎵</span>
+      <span style="font-size:0.7rem; opacity:0.6;">(audio coming soon)</span>
+    </div>
+
+    <div class="story-video-container" id="storyVideoContainer">
+      <video id="storyVideo" controls playsinline
+        src="https://upload.wikimedia.org/wikipedia/commons/7/77/Sibi_Jataka_Ajanta.jpg"
+        poster="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sibi_Jataka_Ajanta.jpg/640px-Sibi_Jataka_Ajanta.jpg">
+      </video>
+      <div class="video-end-overlay" id="videoEndOverlay">
+        <div class="video-end-content">
+          <span class="video-end-icon">☸</span>
+          <h3>කතාව අවසානයි<br/>The Story is Complete</h3>
+          <div class="video-end-buttons">
+            <button class="video-end-btn replay-btn" id="replayBtn">⟳ නැවත ධාවනය / Replay</button>
+            <a class="video-end-btn menu-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Main Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-slideshow" role="region" aria-label="Story slideshow">
+      <button class="slide-arrow prev" aria-label="Previous scene">&#8249;</button>
+      <button class="slide-arrow next" aria-label="Next scene">&#8250;</button>
+
+      <div class="slide active" id="slide-1">
+        <div class="slide-placeholder">
+          <span class="icon">👁️</span>
+          <strong>Scene 1</strong>
+          <span>සිවි රජුගේ දානය<br/>(King Sivi's Charity)</span>
+          <code><!-- TEAM IMAGE: scene-01.jpg --></code>
+        </div>
+        <div class="slide-caption">සිවි රජුගේ මහා දානය — King Sivi's great acts of generosity</div>
+      </div>
+
+      <div class="slide" id="slide-2">
+        <div class="slide-placeholder">
+          <span class="icon">🕊️</span>
+          <strong>Scene 2</strong>
+          <span>දිව්‍ය පරීක්ෂණය<br/>(The Divine Test)</span>
+          <code><!-- TEAM IMAGE: scene-02.jpg --></code>
+        </div>
+        <div class="slide-caption">ශක්‍ර දෙවිඳුගේ පරීක්ෂණය — Sakka (Indra) tests King Sivi's resolve</div>
+      </div>
+
+      <div class="slide" id="slide-3">
+        <div class="slide-placeholder">
+          <span class="icon">💎</span>
+          <strong>Scene 3</strong>
+          <span>ඇස් පරිත්‍යාගය<br/>(Offering the Eyes)</span>
+          <code><!-- TEAM IMAGE: scene-03.jpg --></code>
+        </div>
+        <div class="slide-caption">තම ඇස් පරිත්‍යාග කිරීම — The king offers his own eyes to a blind beggar</div>
+      </div>
+
+      <div class="slide" id="slide-4">
+        <div class="slide-placeholder">
+          <span class="icon">🌟</span>
+          <strong>Scene 4</strong>
+          <span>ප්‍රතිඵලය<br/>(The Reward)</span>
+          <code><!-- TEAM IMAGE: scene-04.jpg --></code>
+        </div>
+        <div class="slide-caption">දානයේ ආනිසංස — The blessings and rewards of perfect generosity</div>
+      </div>
+
+    </div>
+
+    <div class="slide-dots" role="tablist" aria-label="Scene navigation">
+      <button class="slide-dot active" role="tab" aria-label="Scene 1"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 2"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 3"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 4"></button>
+    </div>
+
+    <section class="story-text">
+      <h2>🪷 කතාවේ සාරාංශය</h2>
+      <p>සිවි ජාතකය, දාන පාරමිතාවේ අතිශය උතුම් ආදර්ශයකි. සිවි රජු තම රාජ්‍යයේ සියලු ධනය දානය කළ පමණක් නොව, අන්ධ භික්ෂුවකට තම ඇස් ද පරිත්‍යාග කළේය.</p>
+      <p>මෙම ජාතකය තුළින් දානයේ උතුම් බව, පරිත්‍යාගයේ වටිනාකම, සහ තමාගේ ශරීරය පවා දානය කිරීමට තරම් උදාර විය හැකි දාන පාරමිතාව පෙන්වා දෙයි. සිවි රජුගේ දානයට පැහැදුණු ශක්‍ර දෙවිඳු ඔහුගේ ඇස් නැවත ලබා දුන්නේය.</p>
+
+      <hr style="border-color: rgba(26,138,122,0.2); margin: 1rem 0;" />
+
+      <h2>📖 Summary in English</h2>
+      <p>The Sivi Jataka is a story about the perfection of generosity (Dāna Pāramitā). King Sivi gave away all his wealth to the needy, and when a blind beggar asked for his eyes, he willingly offered them. Moved by his selflessness, Sakka (Indra) restored his sight. This tale illustrates that true giving knows no bounds.</p>
+    </section>
+
+    <div style="text-align:center; padding-bottom: 2rem;">
+      <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Back to Main Menu</a>
+    </div>
+
+  </div>
+
+  <script src="../../assets/shared-js/lights.js"></script>
+  <script src="js/story.js"></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>කුළාවක ජාතකය — Digital Thorana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Sinhala:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/shared-css/thorana-frame.css" />
+  <link rel="stylesheet" href="css/story.css" />
+</head>
+<body>
+
+  <div class="thorana-frame" aria-hidden="true">
+    <div class="thorana-frame__strip thorana-frame__strip--top"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--bottom"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--left"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--right"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tr"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--bl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--br"></div>
+  </div>
+
+  <canvas id="lightsCanvas"></canvas>
+  <div class="story-bg-glow" aria-hidden="true"></div>
+
+  <div class="thorana-content">
+
+    <a class="back-btn" href="../../index.html">
+      ← ප්‍රධාන පිටුවට / Main Menu
+    </a>
+
+    <header class="story-header">
+      <span class="dharma-wheel" aria-hidden="true">☸</span>
+      <h1 class="story-title">කුළාවක ජාතකය</h1>
+      <p class="story-subtitle">Kulaavaka Jataka · The Story of Compassion</p>
+    </header>
+
+    <div class="story-audio">
+      <span>🎵</span>
+      <span style="font-size:0.7rem; opacity:0.6;">(audio coming soon)</span>
+    </div>
+
+    <div class="story-video-container" id="storyVideoContainer">
+      <video id="storyVideo" controls playsinline
+        src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Buddha_in_the_Forest.jpg"
+        poster="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Buddha_in_the_Forest.jpg/640px-Buddha_in_the_Forest.jpg">
+      </video>
+      <div class="video-end-overlay" id="videoEndOverlay">
+        <div class="video-end-content">
+          <span class="video-end-icon">☸</span>
+          <h3>කතාව අවසානයි<br/>The Story is Complete</h3>
+          <div class="video-end-buttons">
+            <button class="video-end-btn replay-btn" id="replayBtn">⟳ නැවත ධාවනය / Replay</button>
+            <a class="video-end-btn menu-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Main Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-slideshow" role="region" aria-label="Story slideshow">
+      <button class="slide-arrow prev" aria-label="Previous scene">&#8249;</button>
+      <button class="slide-arrow next" aria-label="Next scene">&#8250;</button>
+
+      <div class="slide active" id="slide-1">
+        <div class="slide-placeholder">
+          <span class="icon">🌿</span>
+          <strong>Scene 1</strong>
+          <span>වනයේ ජීවිතය<br/>(Life in the Forest)</span>
+          <code><!-- TEAM IMAGE: scene-01.jpg --></code>
+        </div>
+        <div class="slide-caption">වනයේ සත්වයන් සමඟ — The Bodhisatta living among forest creatures</div>
+      </div>
+
+      <div class="slide" id="slide-2">
+        <div class="slide-placeholder">
+          <span class="icon">🦜</span>
+          <strong>Scene 2</strong>
+          <span>කුළාවක පක්ෂියා<br/>(The Kulaavaka Bird)</span>
+          <code><!-- TEAM IMAGE: scene-02.jpg --></code>
+        </div>
+        <div class="slide-caption">කුළාවක පක්ෂියාගේ කතාව — The story of the Kulaavaka bird and its young</div>
+      </div>
+
+      <div class="slide" id="slide-3">
+        <div class="slide-placeholder">
+          <span class="icon">🔥</span>
+          <strong>Scene 3</strong>
+          <span>ගින්නෙන් ආරක්ෂා වීම<br/>(Saved from the Fire)</span>
+          <code><!-- TEAM IMAGE: scene-03.jpg --></code>
+        </div>
+        <div class="slide-caption">වන ගින්නෙන් සත්වයන් බේරා ගැනීම — Saving animals from a devastating forest fire</div>
+      </div>
+
+      <div class="slide" id="slide-4">
+        <div class="slide-placeholder">
+          <span class="icon">💧</span>
+          <strong>Scene 4</strong>
+          <span>කරුණාවේ බලය<br/>(Power of Compassion)</span>
+          <code><!-- TEAM IMAGE: scene-04.jpg --></code>
+        </div>
+        <div class="slide-caption">කරුණාවෙන් සියල්ල ජයගැනීම — Overcoming all obstacles through compassion</div>
+      </div>
+
+    </div>
+
+    <div class="slide-dots" role="tablist" aria-label="Scene navigation">
+      <button class="slide-dot active" role="tab" aria-label="Scene 1"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 2"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 3"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 4"></button>
+    </div>
+
+    <section class="story-text">
+      <h2>🪷 කතාවේ සාරාංශය</h2>
+      <p>කුළාවක ජාතකය, කරුණාවේ පාරමිතාව විදහා දක්වන කතාවකි. බෝසතාණෝ වනයේ සත්වයෙකු ලෙස ඉපිද, සිය දිවි පරදුවට තබා අන් සත්වයන් ගින්නෙන් බේරා ගැනීමට ක්‍රියා කළහ.</p>
+      <p>මෙම ජාතකය තුළින් කරුණාව, දයාව, සහ පරාර්ථකාමීත්වයේ වැදගත්කම අවධාරණය කෙරේ. සියලු සත්වයන් කෙරෙහි දයාව දැක්වීම මිනිස් ජීවිතයේ උත්තම ගුණාංගයක් බව පෙන්වා දෙයි.</p>
+
+      <hr style="border-color: rgba(224,123,16,0.2); margin: 1rem 0;" />
+
+      <h2>📖 Summary in English</h2>
+      <p>The Kulaavaka Jataka illustrates the perfection of compassion (Mettā Pāramitā). The Bodhisatta, born as a forest creature, risked his own life to save other animals from a raging forest fire. This story teaches the importance of compassion, kindness, and selflessness towards all living beings.</p>
+    </section>
+
+    <div style="text-align:center; padding-bottom: 2rem;">
+      <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Back to Main Menu</a>
+    </div>
+
+  </div>
+
+  <script src="../../assets/shared-js/lights.js"></script>
+  <script src="js/story.js"></script>
+</body>
+</html>

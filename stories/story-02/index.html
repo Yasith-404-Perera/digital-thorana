@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>මහෝසධ ජාතකය — Digital Thorana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Sinhala:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/shared-css/thorana-frame.css" />
+  <link rel="stylesheet" href="css/story.css" />
+</head>
+<body>
+
+  <div class="thorana-frame" aria-hidden="true">
+    <div class="thorana-frame__strip thorana-frame__strip--top"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--bottom"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--left"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--right"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tr"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--bl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--br"></div>
+  </div>
+
+  <canvas id="lightsCanvas"></canvas>
+  <div class="story-bg-glow" aria-hidden="true"></div>
+
+  <div class="thorana-content">
+
+    <a class="back-btn" href="../../index.html">
+      ← ප්‍රධාන පිටුවට / Main Menu
+    </a>
+
+    <header class="story-header">
+      <span class="dharma-wheel" aria-hidden="true">☸</span>
+      <h1 class="story-title">මහෝසධ ජාතකය</h1>
+      <p class="story-subtitle">Mahosadha Jataka · The Wisdom Birth Story</p>
+    </header>
+
+    <div class="story-audio">
+      <span>🎵</span>
+      <span style="font-size:0.7rem; opacity:0.6;">(audio coming soon)</span>
+    </div>
+
+    <div class="story-video-container" id="storyVideoContainer">
+      <video id="storyVideo" controls playsinline
+        src="https://upload.wikimedia.org/wikipedia/commons/5/55/Mahjanaka_Jataka.jpg"
+        poster="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mahjanaka_Jataka.jpg/640px-Mahjanaka_Jataka.jpg">
+      </video>
+      <div class="video-end-overlay" id="videoEndOverlay">
+        <div class="video-end-content">
+          <span class="video-end-icon">☸</span>
+          <h3>කතාව අවසානයි<br/>The Story is Complete</h3>
+          <div class="video-end-buttons">
+            <button class="video-end-btn replay-btn" id="replayBtn">⟳ නැවත ධාවනය / Replay</button>
+            <a class="video-end-btn menu-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Main Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="story-slideshow" role="region" aria-label="Story slideshow">
+      <button class="slide-arrow prev" aria-label="Previous scene">&#8249;</button>
+      <button class="slide-arrow next" aria-label="Next scene">&#8250;</button>
+
+      <div class="slide active" id="slide-1">
+        <div class="slide-placeholder">
+          <span class="icon">👶</span>
+          <strong>Scene 1</strong>
+          <span>මහෝසධ කුමාරයාගේ උපත<br/>(Birth of Mahosadha)</span>
+          <code><!-- TEAM IMAGE: scene-01.jpg --></code>
+        </div>
+        <div class="slide-caption">මහෝසධ කුමාරයා ප්‍රඥාවෙන් උපත ලැබීම — The wise Mahosadha is born</div>
+      </div>
+
+      <div class="slide" id="slide-2">
+        <div class="slide-placeholder">
+          <span class="icon">🧠</span>
+          <strong>Scene 2</strong>
+          <span>ප්‍රඥාවේ ප්‍රථම ප්‍රකාශනය<br/>(First Display of Wisdom)</span>
+          <code><!-- TEAM IMAGE: scene-02.jpg --></code>
+        </div>
+        <div class="slide-caption">කුඩා කල සිටම ප්‍රඥාව ප්‍රකාශ කිරීම — The young Mahosadha displays his great wisdom</div>
+      </div>
+
+      <div class="slide" id="slide-3">
+        <div class="slide-placeholder">
+          <span class="icon">🏛️</span>
+          <strong>Scene 3</strong>
+          <span>රාජ සභාවේ ප්‍රඥාව<br/>(Wisdom in the Royal Court)</span>
+          <code><!-- TEAM IMAGE: scene-03.jpg --></code>
+        </div>
+        <div class="slide-caption">රජුගේ ප්‍රශ්න වලට පිළිතුරු — Mahosadha answers the king's questions with wisdom</div>
+      </div>
+
+      <div class="slide" id="slide-4">
+        <div class="slide-placeholder">
+          <span class="icon">⚔️</span>
+          <strong>Scene 4</strong>
+          <span>සතුරන් පරාජය<br/>(Defeating Enemies)</span>
+          <code><!-- TEAM IMAGE: scene-04.jpg --></code>
+        </div>
+        <div class="slide-caption">කපටි අමාත්‍යවරුන් පරාජය කිරීම — Outwitting the treacherous ministers</div>
+      </div>
+
+      <div class="slide" id="slide-5">
+        <div class="slide-placeholder">
+          <span class="icon">🕊️</span>
+          <strong>Scene 5</strong>
+          <span>සාමය ඇති කිරීම<br/>(Establishing Peace)</span>
+          <code><!-- TEAM IMAGE: scene-05.jpg --></code>
+        </div>
+        <div class="slide-caption">රාජ්‍යයේ සාමය ස්ථාපිත කිරීම — Peace and prosperity established in the kingdom</div>
+      </div>
+
+    </div>
+
+    <div class="slide-dots" role="tablist" aria-label="Scene navigation">
+      <button class="slide-dot active" role="tab" aria-label="Scene 1"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 2"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 3"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 4"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 5"></button>
+    </div>
+
+    <section class="story-text">
+      <h2>🪷 කතාවේ සාරාංශය</h2>
+      <p>මහෝසධ ජාතකය, ප්‍රඥාවේ පාරමිතාව සම්පූර්ණ කළ ජාතකය ලෙස සැලකේ. බෝසතාණෝ මහෝසධ පණ්ඩිතයන් ලෙස ඉපිද, අතිමහත් ප්‍රඥාවෙන් යුතුව රාජ්‍යයේ අර්බුද විසඳා, සතුරන් පරාජය කර, සාමය ඇති කළහ.</p>
+      <p>මෙම ජාතකය තුළින් ප්‍රඥාවේ වැදගත්කම, ඥානයෙන් තීරණ ගැනීමේ අවශ්‍යතාවය, සහ දක්ෂ ලෙස ගැටළු විසඳීමේ කලාව පෙන්වා දෙයි.</p>
+
+      <hr style="border-color: rgba(42,154,74,0.2); margin: 1rem 0;" />
+
+      <h2>📖 Summary in English</h2>
+      <p>The Mahosadha Jataka is the tale of the perfection of wisdom (Paññā Pāramitā). The Bodhisatta was born as the wise Mahosadha, who used his profound intelligence to solve complex problems, outwit cunning enemies, and bring peace and prosperity to the kingdom. This story highlights the importance of wisdom and intelligent decision-making.</p>
+    </section>
+
+    <div style="text-align:center; padding-bottom: 2rem;">
+      <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Back to Main Menu</a>
+    </div>
+
+  </div>
+
+  <script src="../../assets/shared-js/lights.js"></script>
+  <script src="js/story.js"></script>
+</body>
+</html>

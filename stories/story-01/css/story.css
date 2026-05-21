@@ -1,44 +1,36 @@
-/* ============================================================
-   story-01 / css / story.css
-   Wessantara Jataka — story-specific style overrides
-   ============================================================ */
+:root {
+  --frame-a:      #c0392b;
+  --frame-b:      #c8922a;
+  --frame-c:      #2a1210;
+  --frame-grad:   90deg;
+  --corner-deco:  '\u2726';
+}
 
-/* Story-specific background: deep forest night */
 body {
   background:
-    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(20,60,30,0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(200,146,42,0.20) 0%, transparent 70%),
     radial-gradient(ellipse 50% 40% at 80% 80%, rgba(139,26,26,0.15) 0%, transparent 60%),
     #0a0608;
 }
 
 .story-bg-glow {
-  position: fixed;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(30,80,40,0.18) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+  background: radial-gradient(ellipse, rgba(200,146,42,0.15) 0%, transparent 70%);
 }
 
-/* Teal-green accent on this story's title */
 .story-title {
-  color: #e8d077;
+  color: #f5c842;
   text-shadow:
-    0 0 40px rgba(232,208,119,0.6),
-    0 0 80px rgba(30,120,60,0.3);
+    0 0 40px rgba(245,200,66,0.6),
+    0 0 80px rgba(192,57,43,0.3);
 }
 
-/* Slide placeholder accent colour for this story */
 .slide-placeholder {
-  background: linear-gradient(135deg, #071a0e 0%, #0f1808 100%);
-  border: 1px dashed rgba(30,140,70,0.35);
+  background: linear-gradient(135deg, #2a1210 0%, #1a0d08 100%);
+  border: 1px dashed rgba(200,146,42,0.35);
 }
 
-/* Story text panel slight green tint */
 .story-text {
-  background: linear-gradient(135deg, rgba(10,28,15,0.9) 0%, rgba(12,22,10,0.9) 100%);
-  border-color: rgba(30,140,70,0.3);
+  background: linear-gradient(135deg, rgba(42,18,16,0.9) 0%, rgba(26,13,8,0.9) 100%);
+  border-color: rgba(200,146,42,0.3);
 }
-.story-text h2 { color: #a8d870; }
+.story-text h2 { color: #f5c842; }

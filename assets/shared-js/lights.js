@@ -1,43 +1,40 @@
-/* ============================================================
-   DIGITAL THORANA — lights.js  (shared)
-   Animated chasing bulb lights along the frame border
-   ============================================================ */
-
 (function initLights() {
   const canvas = document.getElementById('lightsCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  const BORDER = 18;          // must match CSS --frame-border
-  const BULB_SPACING = 28;    // px between each bulb
-  const BULB_RADIUS  = 5;     // bulb dot radius
-  const CHASE_SPEED  = 3;     // frames between advancing the lit group
-  const GROUP_SIZE   = 4;     // how many consecutive bulbs are lit
+  const BORDER = 18;
+  const BULB_SPACING = 28;
+  const BULB_RADIUS  = 5;
+  const MODE = 'flicker';
+  const CHASE_SPEED  = 3;
+  const GROUP_SIZE   = 4;
   const COLOURS = ['#f5c842', '#e07b10', '#c0392b', '#1a8a7a', '#ffffff', '#f5c842'];
 
   let W, H;
   let bulbs = [];
   let offset = 0;
   let frameCount = 0;
+  let flickerStates = [];
 
   function buildPath() {
     bulbs = [];
-
-    // Top edge → right
+    flickerStates = [];
     for (let x = BORDER; x < W - BORDER; x += BULB_SPACING) {
       bulbs.push({ x, y: BORDER / 2 });
+      flickerStates.push(Math.random() > 0.5);
     }
-    // Right edge → down
     for (let y = BORDER; y < H - BORDER; y += BULB_SPACING) {
       bulbs.push({ x: W - BORDER / 2, y });
+      flickerStates.push(Math.random() > 0.5);
     }
-    // Bottom edge ← left
     for (let x = W - BORDER; x > BORDER; x -= BULB_SPACING) {
       bulbs.push({ x, y: H - BORDER / 2 });
+      flickerStates.push(Math.random() > 0.5);
     }
-    // Left edge ↑ up
     for (let y = H - BORDER; y > BORDER; y -= BULB_SPACING) {
       bulbs.push({ x: BORDER / 2, y });
+      flickerStates.push(Math.random() > 0.5);
     }
   }
 
@@ -49,21 +46,11 @@
 
   function drawBulb(x, y, lit, colourIndex) {
     const colour = COLOURS[colourIndex % COLOURS.length];
-
     if (lit) {
-      // Glow halo
-      const grad = ctx.createRadialGradient(x, y, 0, x, y, BULB_RADIUS * 4);
-      grad.addColorStop(0,   colour.replace(')', ', 0.6)').replace('#', 'rgba(').replace(
-        /rgba\(([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i,
-        (_, r, g, b) => `rgba(${parseInt(r,16)},${parseInt(g,16)},${parseInt(b,16)}`
-      ));
-      // Simpler approach:
       ctx.beginPath();
       ctx.arc(x, y, BULB_RADIUS * 3.5, 0, Math.PI * 2);
       ctx.fillStyle = hexToRgba(colour, 0.25);
       ctx.fill();
-
-      // Bright centre
       ctx.beginPath();
       ctx.arc(x, y, BULB_RADIUS, 0, Math.PI * 2);
       ctx.fillStyle = colour;
@@ -71,14 +58,11 @@
       ctx.shadowBlur = 10;
       ctx.fill();
       ctx.shadowBlur = 0;
-
-      // Specular highlight
       ctx.beginPath();
       ctx.arc(x - 1.5, y - 1.5, BULB_RADIUS * 0.4, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255,255,255,0.7)';
       ctx.fill();
     } else {
-      // Dim bulb
       ctx.beginPath();
       ctx.arc(x, y, BULB_RADIUS, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(60,30,20,0.8)';
@@ -98,18 +82,26 @@
 
   function tick() {
     ctx.clearRect(0, 0, W, H);
-
     frameCount++;
-    if (frameCount % CHASE_SPEED === 0) {
-      offset = (offset + 1) % bulbs.length;
-    }
 
-    for (let i = 0; i < bulbs.length; i++) {
-      const b = bulbs[i];
-      // A bulb is "lit" if it's in the current chasing window
-      const lit = ((i - offset + bulbs.length) % bulbs.length) < GROUP_SIZE;
-      const colourIndex = Math.floor(i / GROUP_SIZE);
-      drawBulb(b.x, b.y, lit, colourIndex);
+    if (MODE === 'chase') {
+      if (frameCount % CHASE_SPEED === 0) {
+        offset = (offset + 1) % bulbs.length;
+      }
+      for (let i = 0; i < bulbs.length; i++) {
+        const b = bulbs[i];
+        const lit = ((i - offset + bulbs.length) % bulbs.length) < GROUP_SIZE;
+        drawBulb(b.x, b.y, lit, Math.floor(i / GROUP_SIZE));
+      }
+    } else {
+      if (frameCount % 4 === 0) {
+        for (let i = 0; i < flickerStates.length; i++) {
+          flickerStates[i] = Math.random() > 0.55;
+        }
+      }
+      for (let i = 0; i < bulbs.length; i++) {
+        drawBulb(bulbs[i].x, bulbs[i].y, flickerStates[i], Math.floor(i / GROUP_SIZE));
+      }
     }
 
     requestAnimationFrame(tick);
@@ -120,11 +112,6 @@
   tick();
 })();
 
-
-/* ============================================================
-   SHARED SLIDESHOW LOGIC
-   Call initSlideshow() after DOM ready.
-   ============================================================ */
 function initSlideshow(intervalMs = 5000) {
   const slides     = document.querySelectorAll('.slide');
   const dots       = document.querySelectorAll('.slide-dot');
@@ -137,10 +124,10 @@ function initSlideshow(intervalMs = 5000) {
   let timer;
 
   function goTo(index) {
-    slides[current].classList.remove('active');
+    slides[current]?.classList.remove('active');
     dots[current]?.classList.remove('active');
     current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
+    slides[current]?.classList.add('active');
     dots[current]?.classList.add('active');
   }
 

@@ -13,7 +13,6 @@
 
   <canvas id="particleCanvas"></canvas>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="hline"></div>
     <div class="header-centre">
@@ -24,24 +23,21 @@
     <div class="hline"></div>
   </header>
 
-  <!-- LOTUS STAGE -->
   <main class="stage">
     <div class="outer-ring-deco" aria-hidden="true"></div>
     <div class="mid-ring-deco"   aria-hidden="true"></div>
 
-    <!-- The wheel that spins -->
     <div class="lotus-wheel" id="lotusWheel">
 
-      <!-- 8 petals – each one is a diamond-framed panel like the thorana photos -->
-
-      <!-- PETAL 0 — top -->
+      <!-- PETAL 0 — Wessantara -->
       <div class="petal-wrap" style="--i:0">
         <a class="petal-card" href="stories/story-01/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/040_Vessantara_Jataka_2024-12-10.jpg/320px-040_Vessantara_Jataka_2024-12-10.jpg"
-              alt="වෙස්සන්තර ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/040_Vessantara_Jataka_2024-12-10.jpg/320px-040_Vessantara_Jataka_2024-12-10.jpg"
+                alt="වෙස්සන්තර ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">01</span>
           </div>
@@ -49,14 +45,15 @@
         </a>
       </div>
 
-      <!-- PETAL 1 — top-right -->
+      <!-- PETAL 1 — Mahosadha -->
       <div class="petal-wrap" style="--i:1">
         <a class="petal-card" href="stories/story-02/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mahjanaka_Jataka.jpg/320px-Mahjanaka_Jataka.jpg"
-              alt="මහෝසධ ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Mahjanaka_Jataka.jpg/320px-Mahjanaka_Jataka.jpg"
+                alt="මහෝසධ ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">02</span>
           </div>
@@ -64,14 +61,15 @@
         </a>
       </div>
 
-      <!-- PETAL 2 — right -->
+      <!-- PETAL 2 — Kulaavaka -->
       <div class="petal-wrap" style="--i:2">
         <a class="petal-card" href="stories/story-03/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Buddha_in_the_Forest.jpg/320px-Buddha_in_the_Forest.jpg"
-              alt="කුළාවක ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Buddha_in_the_Forest.jpg/320px-Buddha_in_the_Forest.jpg"
+                alt="කුළාවක ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">03</span>
           </div>
@@ -79,14 +77,15 @@
         </a>
       </div>
 
-      <!-- PETAL 3 — bottom-right -->
+      <!-- PETAL 3 — Sivi -->
       <div class="petal-wrap" style="--i:3">
         <a class="petal-card" href="stories/story-04/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sibi_Jataka_Ajanta.jpg/320px-Sibi_Jataka_Ajanta.jpg"
-              alt="සිවි ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sibi_Jataka_Ajanta.jpg/320px-Sibi_Jataka_Ajanta.jpg"
+                alt="සිවි ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">04</span>
           </div>
@@ -94,14 +93,15 @@
         </a>
       </div>
 
-      <!-- PETAL 4 — bottom -->
+      <!-- PETAL 4 — Sutasoma -->
       <div class="petal-wrap" style="--i:4">
         <a class="petal-card" href="stories/story-05/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Sutasoma_Jataka_Buddhist_Art.jpg/320px-Sutasoma_Jataka_Buddhist_Art.jpg"
-              alt="සුතසෝම ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Sutasoma_Jataka_Buddhist_Art.jpg/320px-Sutasoma_Jataka_Buddhist_Art.jpg"
+                alt="සුතසෝම ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">05</span>
           </div>
@@ -109,14 +109,15 @@
         </a>
       </div>
 
-      <!-- PETAL 5 — bottom-left -->
+      <!-- PETAL 5 — Nimi -->
       <div class="petal-wrap" style="--i:5">
         <a class="petal-card" href="stories/story-06/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Nimi_Jataka_painting.jpg/320px-Nimi_Jataka_painting.jpg"
-              alt="නිමි ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Nimi_Jataka_painting.jpg/320px-Nimi_Jataka_painting.jpg"
+                alt="නිමි ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">06</span>
           </div>
@@ -124,14 +125,15 @@
         </a>
       </div>
 
-      <!-- PETAL 6 — left -->
+      <!-- PETAL 6 — Bhuridatta -->
       <div class="petal-wrap" style="--i:6">
         <a class="petal-card" href="stories/story-07/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Bhuridatta_Jataka.jpg/320px-Bhuridatta_Jataka.jpg"
-              alt="භූරිදත්ත ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Bhuridatta_Jataka.jpg/320px-Bhuridatta_Jataka.jpg"
+                alt="භූරිදත්ත ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">07</span>
           </div>
@@ -139,14 +141,15 @@
         </a>
       </div>
 
-      <!-- PETAL 7 — top-left -->
+      <!-- PETAL 7 — Temiya -->
       <div class="petal-wrap" style="--i:7">
         <a class="petal-card" href="stories/story-08/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Temiya_Jataka_Buddhist_painting.jpg/320px-Temiya_Jataka_Buddhist_painting.jpg"
-              alt="තේමිය ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Temiya_Jataka_Buddhist_painting.jpg/320px-Temiya_Jataka_Buddhist_painting.jpg"
+                alt="තේමිය ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">08</span>
           </div>
@@ -154,14 +157,15 @@
         </a>
       </div>
 
-      <!-- PETAL 8 — extra: Mahakapi -->
+      <!-- PETAL 8 — Mahakapi -->
       <div class="petal-wrap" style="--i:8">
         <a class="petal-card" href="stories/story-09/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Mahakapi_Jataka_Ajanta_Cave17.jpg/320px-Mahakapi_Jataka_Ajanta_Cave17.jpg"
-              alt="මහකපි ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Mahakapi_Jataka_Ajanta_Cave17.jpg/320px-Mahakapi_Jataka_Ajanta_Cave17.jpg"
+                alt="මහකපි ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">09</span>
           </div>
@@ -173,10 +177,11 @@
       <div class="petal-wrap" style="--i:9">
         <a class="petal-card" href="stories/story-10/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kusa_Jataka_Thai_painting.jpg/320px-Kusa_Jataka_Thai_painting.jpg"
-              alt="කුස ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Kusa_Jataka_Thai_painting.jpg/320px-Kusa_Jataka_Thai_painting.jpg"
+                alt="කුස ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">10</span>
           </div>
@@ -184,14 +189,15 @@
         </a>
       </div>
 
-      <!-- PETAL 10 — Nandaka -->
+      <!-- PETAL 10 — Syama -->
       <div class="petal-wrap" style="--i:10">
         <a class="petal-card" href="stories/story-11/index.html">
           <div class="petal-frame">
-            <img class="petal-img"
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Jataka_stories_Buddhist_temple_mural.jpg/320px-Jataka_stories_Buddhist_temple_mural.jpg"
-              alt="ශ්‍යාම ජාතකය"
-              onerror="this.src='assets/img/thumb-placeholder.svg'"/>
+            <div class="petal-img-wrap">
+              <img class="petal-img"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Jataka_stories_Buddhist_temple_mural.jpg/320px-Jataka_stories_Buddhist_temple_mural.jpg"
+                alt="ශ්‍යාම ජාතකය"/>
+            </div>
             <div class="petal-overlay"></div>
             <span class="petal-num">11</span>
           </div>
@@ -199,7 +205,6 @@
         </a>
       </div>
 
-      <!-- CENTRE Buddha -->
       <div class="lotus-centre">
         <div class="centre-ring c1"></div>
         <div class="centre-ring c2"></div>
@@ -209,7 +214,7 @@
         </div>
       </div>
 
-    </div><!-- /lotus-wheel -->
+    </div>
   </main>
 
   <footer class="site-footer">

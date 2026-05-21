@@ -1,0 +1,36 @@
+:root {
+  --frame-a:      #1a5c5a;
+  --frame-b:      #2a9a4a;
+  --frame-c:      #0a2820;
+  --frame-grad:   90deg;
+  --corner-deco:  '\u25CB';
+}
+
+body {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(42,154,74,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(26,92,90,0.15) 0%, transparent 60%),
+    #0a0608;
+}
+
+.story-bg-glow {
+  background: radial-gradient(ellipse, rgba(42,154,74,0.12) 0%, transparent 70%);
+}
+
+.story-title {
+  color: #6fcf6f;
+  text-shadow:
+    0 0 40px rgba(111,207,111,0.5),
+    0 0 80px rgba(26,92,90,0.3);
+}
+
+.slide-placeholder {
+  background: linear-gradient(135deg, #0a2820 0%, #081a14 100%);
+  border: 1px dashed rgba(42,154,74,0.35);
+}
+
+.story-text {
+  background: linear-gradient(135deg, rgba(10,40,32,0.9) 0%, rgba(8,26,20,0.9) 100%);
+  border-color: rgba(42,154,74,0.3);
+}
+.story-text h2 { color: #6fcf6f; }
