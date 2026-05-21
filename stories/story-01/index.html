@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>වෙස්සන්තර ජාතකය — Digital Thorana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Sinhala:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <!-- Shared thorana frame styles -->
+  <link rel="stylesheet" href="../../assets/shared-css/thorana-frame.css" />
+  <!-- Story-specific overrides -->
+  <link rel="stylesheet" href="css/story.css" />
+</head>
+<body>
+
+  <!-- ===== THORANA BORDER FRAME ===== -->
+  <div class="thorana-frame" aria-hidden="true">
+    <div class="thorana-frame__strip thorana-frame__strip--top"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--bottom"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--left"></div>
+    <div class="thorana-frame__strip thorana-frame__strip--right"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--tr"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--bl"></div>
+    <div class="thorana-frame__corner thorana-frame__corner--br"></div>
+  </div>
+
+  <!-- ===== ANIMATED LIGHTS CANVAS ===== -->
+  <canvas id="lightsCanvas"></canvas>
+
+  <!-- ===== PAGE BACKGROUND GLOW ===== -->
+  <div class="story-bg-glow" aria-hidden="true"></div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="thorana-content">
+
+    <!-- Back navigation -->
+    <a class="back-btn" href="../../index.html">
+      ← ප්‍රධාන පිටුවට / Main Menu
+    </a>
+
+    <!-- Story header -->
+    <header class="story-header">
+      <span class="dharma-wheel" aria-hidden="true">☸</span>
+      <h1 class="story-title">වෙස්සන්තර ජාතකය</h1>
+      <p class="story-subtitle">Wessantara Jataka · The Great Birth Story</p>
+    </header>
+
+    <!-- Optional background audio -->
+    <div class="story-audio">
+      <span>🎵</span>
+      <!-- TEAM AUDIO: Replace src with your raw GitHub audio URL -->
+      <!-- <audio controls loop src="PLACEHOLDER_AUDIO_URL"></audio> -->
+      <span style="font-size:0.7rem; opacity:0.6;">(audio coming soon)</span>
+    </div>
+
+    <!-- ===== SLIDESHOW ===== -->
+    <div class="story-slideshow" role="region" aria-label="Story slideshow">
+
+      <!-- Prev / Next arrows -->
+      <button class="slide-arrow prev" aria-label="Previous scene">&#8249;</button>
+      <button class="slide-arrow next" aria-label="Next scene">&#8250;</button>
+
+      <!-- ── SCENE 1 ── -->
+      <div class="slide active" id="slide-1">
+        <!-- TEAM IMAGE: Scene 1 — Prince Wessantara is born with a white elephant.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-01.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">🐘</span>
+          <strong>Scene 1</strong>
+          <span>රාජකුමාර වෙස්සන්තරයන්ගේ උපත<br/>(The Birth of Prince Wessantara)</span>
+          <code><!-- TEAM IMAGE: scene-01.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          රාජකුමාර වෙස්සන්තරයන් හා සුදු ඇතු — The birth of Prince Wessantara with the white elephant Paccaya
+        </div>
+      </div>
+
+      <!-- ── SCENE 2 ── -->
+      <div class="slide" id="slide-2">
+        <!-- TEAM IMAGE: Scene 2 — Prince gives away the white elephant.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-02.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">🤲</span>
+          <strong>Scene 2</strong>
+          <span>සුදු ඇතු දානය<br/>(Giving Away the White Elephant)</span>
+          <code><!-- TEAM IMAGE: scene-02.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          සුදු ඇතු හෙළ රාජ්‍යයට දානය කිරීම — Prince Wessantara donates the rain-bearing white elephant to a neighbouring kingdom
+        </div>
+      </div>
+
+      <!-- ── SCENE 3 ── -->
+      <div class="slide" id="slide-3">
+        <!-- TEAM IMAGE: Scene 3 — The great giving ceremony of seven hundreds.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-03.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">🎁</span>
+          <strong>Scene 3</strong>
+          <span>සත්ත සතක දානය<br/>(The Seven-Hundred Charity)</span>
+          <code><!-- TEAM IMAGE: scene-03.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          සත්ත සතක මහා දානය — The grand act of giving before exile to Mount Vankagiri
+        </div>
+      </div>
+
+      <!-- ── SCENE 4 ── -->
+      <div class="slide" id="slide-4">
+        <!-- TEAM IMAGE: Scene 4 — Wessantara and Maddi journey into the forest.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-04.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">🌿</span>
+          <strong>Scene 4</strong>
+          <span>වනගතය<br/>(Journey into the Forest)</span>
+          <code><!-- TEAM IMAGE: scene-04.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          කුමාරිකා මාද්‍රී රාජකුමාරියත් සමඟ වනය බලා පිටත් වීම — Prince Wessantara and Princess Maddi leave for the Himalayan forest
+        </div>
+      </div>
+
+      <!-- ── SCENE 5 ── -->
+      <div class="slide" id="slide-5">
+        <!-- TEAM IMAGE: Scene 5 — Giving away the children Jali and Kanhajina to the Brahmin Jujaka.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-05.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">👧</span>
+          <strong>Scene 5</strong>
+          <span>දරුවන් දීම<br/>(Giving Away His Children)</span>
+          <code><!-- TEAM IMAGE: scene-05.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          ජාලි හා කණ්හාජිනා කුමාරිකාවන් ජූජකට දීම — Giving his children Jali and Kanhajina to the Brahmin Jujaka
+        </div>
+      </div>
+
+      <!-- ── SCENE 6 ── -->
+      <div class="slide" id="slide-6">
+        <!-- TEAM IMAGE: Scene 6 — Giving away Maddi to Indra (disguised as a brahmin).
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-06.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">🌸</span>
+          <strong>Scene 6</strong>
+          <span>මාද්‍රී රාජකුමාරිය දීම<br/>(Giving Away Princess Maddi)</span>
+          <code><!-- TEAM IMAGE: scene-06.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          ශක්‍ර දෙවිඳු බ්‍රාහ්මණ වේශයෙන් — Prince Wessantara gives away Maddi to the disguised Sakka (Indra)
+        </div>
+      </div>
+
+      <!-- ── SCENE 7 ── -->
+      <div class="slide" id="slide-7">
+        <!-- TEAM IMAGE: Scene 7 — The reunion — children returned, reunion with family.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/scene-07.jpg -->
+        <div class="slide-placeholder">
+          <span class="icon">👨‍👩‍👧‍👦</span>
+          <strong>Scene 7</strong>
+          <span>නැවත එක්වීම<br/>(The Great Reunion)</span>
+          <code><!-- TEAM IMAGE: scene-07.jpg --></code>
+        </div>
+        <div class="slide-caption">
+          රජු ගේ ආපසු ගෙන්වීම — King Sanjaya releases the children and the royal family is reunited
+        </div>
+      </div>
+
+      <!-- ── SCENE 8 (VIDEO optional) ── -->
+      <div class="slide" id="slide-8">
+        <!-- TEAM VIDEO: Closing animated scene or team-produced video.
+             Replace src with:
+             https://raw.githubusercontent.com/YOUR_USERNAME/digital-thorana/main/stories/story-01/media/closing.mp4 -->
+        <div class="slide-placeholder">
+          <span class="icon">🎬</span>
+          <strong>Scene 8 (Video)</strong>
+          <span>අවසාන දර්ශනය<br/>(Closing Scene)</span>
+          <code><!-- TEAM VIDEO: closing.mp4 --></code>
+        </div>
+        <div class="slide-caption">
+          දශ පාරමිතා සම්පූර්ණ — The fulfilment of the Ten Perfections (Pāramitā)
+        </div>
+      </div>
+
+    </div><!-- /story-slideshow -->
+
+    <!-- Slideshow dots -->
+    <div class="slide-dots" role="tablist" aria-label="Scene navigation">
+      <button class="slide-dot active" role="tab" aria-label="Scene 1"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 2"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 3"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 4"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 5"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 6"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 7"></button>
+      <button class="slide-dot" role="tab" aria-label="Scene 8"></button>
+    </div>
+
+    <!-- ===== STORY TEXT ===== -->
+    <section class="story-text">
+      <h2>🪷 කතාවේ සාරාංශය</h2>
+      <p>
+        වෙස්සන්තර ජාතකය, පන්සිය පනස් ජාතකය අතරින් ශ්‍රේෂ්ඨතම ජාතකය ලෙස සැලකේ.
+        අතීතයේ එක් ජාතකයෙහි, බෝසතාණෝ, ශිවී රාජ්‍යයේ රජ වූ සංජය රජු හා ෆෂිවී රාජකුමාරිය වූ
+        ඵුශ්ශතීගේ පුත්‍ර, වෙස්සන්තර රාජකුමාරා ලෙස ඉපදිය. ඒ ජීවිතයේ ඔහු <strong>දාන පාරමිතාව</strong> සම්පූර්ණ කරන ලදී.
+      </p>
+      <p>
+        රාජකුමාරයාණෝ රාජ්‍යයෙන් ලද ශ්වේත හස්තියා (Paccaya) කළිංග රාජ්‍යයට දානය කිරීම නිසා
+        රාජ්‍යයෙන් නෙරපා හරිනු ලැබිය. ඔහු භාර්යාව වූ මාද්‍රී රාජකුමාරිය, ජාලි සහ කණ්හාජිනා
+        කුමාරිකාවන් සමඟ හිමාල වනයේ වසන්කගිරි (Vankagiri) කන්දේ ජීවත් විය.
+      </p>
+      <p>
+        එතැන දී, ජූජක නම් බ්‍රාහ්මණයෙකු ඔහුගේ ළමා දෙදෙනා ඉල්ලා ගෙන ආ විට, රාජකුමාරයාණෝ
+        දාන සිල් රකිමින් ඔවුන් ද දෙනු ලැබිය. ශක්‍ර දෙවිඳු බ්‍රාහ්මණ වේශයෙන් ඇවිත් මාද්‍රී
+        රාජකුමාරිය ද ඉල්ලූ කල ඔහු දෙනු ලැබිය. මෙය දාන පාරමිතාවේ ශ්‍රේෂ්ඨ ආදර්ශයකි.
+      </p>
+      <p>
+        අවසානයේ, ශක්‍ර දෙවිඳු මාද්‍රී රාජකුමාරිය නැවත ප්‍රදානය කළ අතර, ළමා දෙදෙනා ජූජකගෙන්
+        ගලවා ගෙන රාජකීය පවුල නැවත එකතු කරන ලදී.
+      </p>
+
+      <hr style="border-color: rgba(245,200,66,0.2); margin: 1rem 0;" />
+
+      <h2>📖 Summary in English</h2>
+      <p>
+        The Wessantara Jataka is considered the greatest of all 550 Jataka tales. In a past life, the Bodhisatta
+        was born as Prince Wessantara, son of King Sanjaya. He completed the perfection of <strong>generosity (Dāna Pāramitā)</strong>
+        by giving away everything he owned — his prized white elephant, his children, and even his beloved wife —
+        only to have them all restored through divine grace. This story is the most revered Jataka in Sri Lankan
+        Buddhist tradition and is recited as a great act of merit.
+      </p>
+    </section>
+
+    <!-- ===== SECOND BACK BUTTON (bottom) ===== -->
+    <div style="text-align:center; padding-bottom: 2rem;">
+      <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Back to Main Menu</a>
+    </div>
+
+  </div><!-- /thorana-content -->
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="../../assets/shared-js/lights.js"></script>
+  <script src="js/story.js"></script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+/* ============================================================
+   main.css  — Digital Thorana landing page
+   Lotus layout inspired by chakra/lotus reference image
+   Thorana panel style from reference photos (diamond frames,
+   dotted borders, gold on black)
+   ============================================================ */
+
+:root {
+  --gold:      #f5c842;
+  --gold2:     #c8922a;
+  --saffron:   #e07b10;
+  --ruby:      #8b1a1a;
+  --ruby2:     #c0392b;
+  --teal:      #1a8a7a;
+  --night:     #080508;
+  --night2:    #120910;
+  --ivory:     #fdf3e3;
+  --ivory2:    #c9b48a;
+  --r:         230px;   /* petal orbit radius – desktop */
+  --pw:        108px;   /* petal card width */
+  --ph:        126px;   /* petal card height */
+  --petals:    11;      /* total petal count */
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Noto Serif Sinhala',serif;
+  background:var(--night);
+  color:var(--ivory);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* starfield bg */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 45%,rgba(200,146,42,.10) 0%,transparent 65%),
+    radial-gradient(ellipse 50% 50% at 15% 85%,rgba(139,26,26,.12) 0%,transparent 55%),
+    radial-gradient(ellipse 45% 40% at 85% 10%,rgba(26,138,122,.09) 0%,transparent 55%);
+  pointer-events:none;z-index:0;
+}
+
+/* ── Particle canvas ── */
+#particleCanvas{
+  position:fixed;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:1;
+}
+
+/* ── HEADER ── */
+.site-header{
+  position:relative;z-index:10;
+  display:flex;align-items:center;justify-content:center;
+  gap:.8rem;padding:1.6rem 1rem .8rem;
+}
+.hline{
+  flex:1;height:2px;max-width:180px;
+  background:linear-gradient(to right,transparent,var(--gold2),transparent);
+}
+.site-header .hline:last-child{
+  background:linear-gradient(to left,transparent,var(--gold2),transparent);
+}
+.header-centre{text-align:center}
+.header-deco-char{
+  display:block;font-size:1.3rem;color:var(--gold2);
+  text-shadow:0 0 12px var(--gold);
+  animation:spinY 10s linear infinite;
+}
+@keyframes spinY{to{transform:rotate(360deg)}}
+
+.header-title{
+  font-family:'Noto Serif Sinhala',serif;
+  font-size:clamp(1.5rem,5vw,2.8rem);
+  font-weight:700;color:var(--gold);
+  text-shadow:0 0 30px rgba(245,200,66,.55),0 0 70px rgba(245,200,66,.25);
+  letter-spacing:.05em;line-height:1.2;
+}
+.header-en{
+  font-family:'Cinzel Decorative',serif;
+  font-size:.6rem;color:var(--gold2);
+  letter-spacing:.18em;text-transform:uppercase;margin-top:.3rem;
+}
+
+/* ── STAGE ── */
+.stage{
+  position:relative;z-index:5;
+  display:flex;align-items:center;justify-content:center;
+  min-height:72vh;padding:1rem;
+}
+
+/* outer decorative rings like the thorana reference photos */
+.outer-ring-deco,.mid-ring-deco{
+  position:absolute;border-radius:50%;pointer-events:none;
+}
+.outer-ring-deco{
+  width:calc(var(--r)*2 + 200px);height:calc(var(--r)*2 + 200px);
+  border:2px dotted rgba(200,146,42,.25);
+  box-shadow:0 0 40px rgba(200,146,42,.08);
+  animation:breathe 6s ease-in-out infinite alternate;
+}
+.mid-ring-deco{
+  width:calc(var(--r)*2 + 60px);height:calc(var(--r)*2 + 60px);
+  border:1px dotted rgba(200,146,42,.18);
+}
+@keyframes breathe{
+  from{transform:scale(.97);opacity:.6}
+  to  {transform:scale(1.02);opacity:1}
+}
+
+/* ── LOTUS WHEEL ── */
+.lotus-wheel{
+  position:relative;
+  width:calc(var(--r)*2);height:calc(var(--r)*2);
+  animation:spinLotus 35s linear infinite;
+  cursor:default;
+}
+@keyframes spinLotus{
+  from{transform:rotate(0deg)}
+  to  {transform:rotate(-360deg)}
+}
+@media(hover:hover){
+  .lotus-wheel:hover{animation-play-state:paused}
+}
+
+/* ── PETAL WRAP ── */
+.petal-wrap{
+  position:absolute;top:50%;left:50%;
+  /* rotate to angle, push out, counter-rotate card */
+  transform:
+    rotate(calc(var(--i) * (360deg / var(--petals))))
+    translateY(calc(-1 * var(--r)))
+    rotate(calc(var(--i) * (-360deg / var(--petals))));
+  transform-origin:0 0;
+}
+
+/* ── PETAL CARD ── */
+.petal-card{
+  display:block;position:relative;
+  width:var(--pw);height:var(--ph);
+  transform:translate(-50%,-50%);
+  text-decoration:none;
+  /* counter-spin so cards stay upright */
+  animation:counterSpin 35s linear infinite;
+}
+@keyframes counterSpin{
+  from{transform:translate(-50%,-50%) rotate(0deg)}
+  to  {transform:translate(-50%,-50%) rotate(360deg)}
+}
+@media(hover:hover){
+  .lotus-wheel:hover .petal-card{animation-play-state:paused}
+}
+
+/* Diamond / rotated frame — inspired by thorana reference panels */
+.petal-frame{
+  position:relative;
+  width:var(--pw);height:var(--ph);
+  /* rotated square = diamond */
+  clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%);
+  background:var(--night2);
+  border:0; /* clipped – border done via outline pseudo */
+  overflow:hidden;
+  transition:filter .3s;
+}
+/* gold dotted border effect via outline on ::before */
+.petal-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  clip-path:polygon(50% 0%,100% 28%,100% 72%,50% 100%,0% 72%,0% 28%);
+  border:2px solid var(--gold2);
+  z-index:4;pointer-events:none;
+  box-shadow:0 0 0 3px rgba(200,146,42,.15);
+  transition:border-color .3s,box-shadow .3s;
+}
+.petal-card:hover::before,
+.petal-card:focus::before{
+  border-color:var(--gold);
+  box-shadow:0 0 20px rgba(245,200,66,.5),0 0 40px rgba(245,200,66,.2);
+}
+
+.petal-img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .4s,filter .4s;
+  filter:brightness(.8) saturate(1.1);
+}
+.petal-card:hover .petal-img,
+.petal-card:focus .petal-img{
+  transform:scale(1.08);
+  filter:brightness(1.05) saturate(1.3);
+}
+
+.petal-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,0) 40%,rgba(5,2,8,.75) 100%);
+  z-index:2;pointer-events:none;
+}
+
+/* scene number badge */
+.petal-num{
+  position:absolute;top:7px;left:50%;transform:translateX(-50%);
+  font-family:'Cinzel Decorative',serif;
+  font-size:.55rem;color:var(--gold);
+  background:rgba(0,0,0,.6);
+  padding:1px 6px;border-radius:10px;
+  z-index:3;pointer-events:none;
+  letter-spacing:.1em;
+}
+
+/* story name */
+.petal-label{
+  position:absolute;bottom:4px;left:0;right:0;
+  text-align:center;
+  font-size:.54rem;font-weight:600;
+  color:var(--ivory);
+  text-shadow:0 1px 5px rgba(0,0,0,1);
+  line-height:1.3;z-index:5;
+  /* desktop: show on hover only */
+  opacity:0;transition:opacity .3s;
+}
+@media(hover:hover){
+  .petal-card:hover .petal-label,
+  .petal-card:focus .petal-label{opacity:1}
+}
+/* mobile: always visible */
+@media(hover:none){
+  .petal-label{opacity:1;font-size:.52rem}
+}
+
+/* ── LOTUS CENTRE ── */
+.lotus-centre{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:10;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.centre-ring{
+  position:absolute;border-radius:50%;
+  animation:ringPulse 3s ease-in-out infinite alternate;
+}
+.c1{width:80px;height:80px;border:2px solid rgba(245,200,66,.6);
+    box-shadow:0 0 20px rgba(245,200,66,.4);}
+.c2{width:60px;height:60px;border:1px solid rgba(200,146,42,.5);
+    animation-delay:.4s;}
+.c3{width:96px;height:96px;border:1px dotted rgba(200,146,42,.25);
+    animation-delay:.8s;}
+@keyframes ringPulse{
+  from{opacity:.5;transform:scale(.95)}
+  to  {opacity:1;transform:scale(1.04)}
+}
+.centre-jewel{
+  width:52px;height:52px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,var(--gold) 0%,var(--gold2) 45%,var(--ruby) 100%);
+  border:3px solid var(--gold);
+  box-shadow:0 0 20px rgba(245,200,66,.9),0 0 50px rgba(245,200,66,.4);
+  display:flex;align-items:center;justify-content:center;
+}
+.dharma-spin{
+  font-size:1.5rem;color:var(--ivory);
+  text-shadow:0 0 8px var(--gold);
+  animation:spinY 8s linear infinite;
+  display:block;
+}
+
+/* ── FOOTER ── */
+.site-footer{
+  position:relative;z-index:10;
+  text-align:center;padding:1.2rem 1rem 1.8rem;
+  font-size:.7rem;color:var(--ivory2);
+  letter-spacing:.12em;
+  border-top:1px solid rgba(245,200,66,.12);
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  :root{--r:165px;--pw:82px;--ph:96px;--petals:11}
+  .lotus-wheel{width:calc(var(--r)*2);height:calc(var(--r)*2)}
+  .outer-ring-deco{width:calc(var(--r)*2 + 120px);height:calc(var(--r)*2 + 120px)}
+  .mid-ring-deco{width:calc(var(--r)*2 + 30px);height:calc(var(--r)*2 + 30px)}
+  .petal-num{font-size:.44rem}
+  .centre-jewel{width:38px;height:38px}
+  .dharma-spin{font-size:1.1rem}
+}
+@media(max-width:420px){
+  :root{--r:140px;--pw:70px;--ph:82px}
+}
