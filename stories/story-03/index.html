@@ -7,41 +7,143 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Noto+Serif+Sinhala:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../assets/shared-css/thorana-frame.css" />
+  <link rel="stylesheet" href="../../assets/shared-css/thorana-stage.css" />
   <link rel="stylesheet" href="css/story.css" />
 </head>
 <body>
 
-  <div class="thorana-frame" aria-hidden="true">
-    <div class="thorana-frame__strip thorana-frame__strip--top"></div>
-    <div class="thorana-frame__strip thorana-frame__strip--bottom"></div>
-    <div class="thorana-frame__strip thorana-frame__strip--left"></div>
-    <div class="thorana-frame__strip thorana-frame__strip--right"></div>
-    <div class="thorana-frame__corner thorana-frame__corner--tl"></div>
-    <div class="thorana-frame__corner thorana-frame__corner--tr"></div>
-    <div class="thorana-frame__corner thorana-frame__corner--bl"></div>
-    <div class="thorana-frame__corner thorana-frame__corner--br"></div>
+  <div class="thorana-stage">
+    <div class="stage-inner" id="stageInner">
+
+      <div class="arch-bg" aria-hidden="true">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path class="arch-line" d="M 20 85 C 20 30, 80 30, 80 85" />
+          <path class="arch-line" d="M 15 85 C 15 25, 85 25, 85 85" />
+          <path class="arch-line" d="M 10 85 C 10 20, 90 20, 90 85" />
+          <path class="arch-line" d="M 25 85 C 25 35, 75 35, 75 85" stroke-dasharray="3 5" />
+          <path class="arch-line" d="M 5 85 C 5 15, 95 15, 95 85" stroke-dasharray="5 8" opacity="0.15" />
+        </svg>
+      </div>
+
+      <div class="aura-container" aria-hidden="true">
+        <div class="aura-ring aura-1"></div>
+        <div class="aura-ring aura-2"></div>
+        <div class="aura-ring aura-3"></div>
+        <div class="aura-ring aura-4"></div>
+        <div class="aura-ring aura-5"></div>
+      </div>
+
+      <div class="center-figure" aria-label="Buddha">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Buddha_in_the_Forest.jpg/256px-Buddha_in_the_Forest.jpg"
+          alt="Buddha" onerror="this.style.display='none'" />
+      </div>
+
+      <div class="panel-ring">
+        <div class="narrative-panel diamond" data-scene="1" style="--i:0">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">1</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Buddha_in_the_Forest.jpg/320px-Buddha_in_the_Forest.jpg" alt="Scene 1" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel square" data-scene="2" style="--i:1">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">2</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bird_in_flight.jpg/320px-Bird_in_flight.jpg" alt="Scene 2" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel diamond" data-scene="3" style="--i:2">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">3</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Forest_landscape.jpg/320px-Forest_landscape.jpg" alt="Scene 3" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel square" data-scene="4" style="--i:3">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">4</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Peace_dove.jpg/320px-Peace_dove.jpg" alt="Scene 4" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel diamond" data-scene="5" style="--i:4">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">5</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Ancient_battle.jpg/320px-Ancient_battle.jpg" alt="Scene 5" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel square" data-scene="6" style="--i:5">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">6</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Ancient_art.jpg/320px-Ancient_art.jpg" alt="Scene 6" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel diamond" data-scene="7" style="--i:6">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">7</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Family_reunion_painting.jpg/320px-Family_reunion_painting.jpg" alt="Scene 7" />
+            </div>
+          </div>
+        </div>
+        <div class="narrative-panel square" data-scene="8" style="--i:7">
+          <div class="panel-outer">
+            <div class="panel-inner">
+              <span class="panel-badge">8</span>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Buddhist_dhamma.jpg/320px-Buddhist_dhamma.jpg" alt="Scene 8" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dharma-wheel left" aria-hidden="true">
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="hub"></span>
+        <span class="rim-dot"></span><span class="rim-dot"></span>
+        <span class="rim-dot"></span><span class="rim-dot"></span>
+      </div>
+      <div class="dharma-wheel right" aria-hidden="true">
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="spoke"></span><span class="spoke"></span>
+        <span class="hub"></span>
+        <span class="rim-dot"></span><span class="rim-dot"></span>
+        <span class="rim-dot"></span><span class="rim-dot"></span>
+      </div>
+
+      <div class="thorana-footer">
+        <div class="footer-left">
+          <div class="footer-emblem">☸</div>
+          <div class="footer-flag">
+            <span class="b-blue"></span><span class="b-yellow"></span>
+            <span class="b-red"></span><span class="b-white"></span>
+            <span class="b-orange"></span>
+          </div>
+        </div>
+        <div class="footer-title">
+          කුළාවක ජාතකය
+          <small>Kulaavaka Jataka · Digital Thorana</small>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <canvas id="lightsCanvas"></canvas>
-  <div class="story-bg-glow" aria-hidden="true"></div>
-
   <div class="thorana-content">
-
-    <a class="back-btn" href="../../index.html">
-      ← ප්‍රධාන පිටුවට / Main Menu
-    </a>
-
-    <header class="story-header">
-      <span class="dharma-wheel" aria-hidden="true">☸</span>
-      <h1 class="story-title">කුළාවක ජාතකය</h1>
-      <p class="story-subtitle">Kulaavaka Jataka · The Story of Compassion</p>
-    </header>
-
-    <div class="story-audio">
-      <span>🎵</span>
-      <span style="font-size:0.7rem; opacity:0.6;">(audio coming soon)</span>
-    </div>
+    <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Main Menu</a>
 
     <div class="story-video-container" id="storyVideoContainer">
       <video id="storyVideo" controls playsinline
@@ -60,77 +162,19 @@
       </div>
     </div>
 
-    <div class="story-slideshow" role="region" aria-label="Story slideshow">
-      <button class="slide-arrow prev" aria-label="Previous scene">&#8249;</button>
-      <button class="slide-arrow next" aria-label="Next scene">&#8250;</button>
-
-      <div class="slide active" id="slide-1">
-        <div class="slide-placeholder">
-          <span class="icon">🌿</span>
-          <strong>Scene 1</strong>
-          <span>වනයේ ජීවිතය<br/>(Life in the Forest)</span>
-          <code><!-- TEAM IMAGE: scene-01.jpg --></code>
-        </div>
-        <div class="slide-caption">වනයේ සත්වයන් සමඟ — The Bodhisatta living among forest creatures</div>
-      </div>
-
-      <div class="slide" id="slide-2">
-        <div class="slide-placeholder">
-          <span class="icon">🦜</span>
-          <strong>Scene 2</strong>
-          <span>කුළාවක පක්ෂියා<br/>(The Kulaavaka Bird)</span>
-          <code><!-- TEAM IMAGE: scene-02.jpg --></code>
-        </div>
-        <div class="slide-caption">කුළාවක පක්ෂියාගේ කතාව — The story of the Kulaavaka bird and its young</div>
-      </div>
-
-      <div class="slide" id="slide-3">
-        <div class="slide-placeholder">
-          <span class="icon">🔥</span>
-          <strong>Scene 3</strong>
-          <span>ගින්නෙන් ආරක්ෂා වීම<br/>(Saved from the Fire)</span>
-          <code><!-- TEAM IMAGE: scene-03.jpg --></code>
-        </div>
-        <div class="slide-caption">වන ගින්නෙන් සත්වයන් බේරා ගැනීම — Saving animals from a devastating forest fire</div>
-      </div>
-
-      <div class="slide" id="slide-4">
-        <div class="slide-placeholder">
-          <span class="icon">💧</span>
-          <strong>Scene 4</strong>
-          <span>කරුණාවේ බලය<br/>(Power of Compassion)</span>
-          <code><!-- TEAM IMAGE: scene-04.jpg --></code>
-        </div>
-        <div class="slide-caption">කරුණාවෙන් සියල්ල ජයගැනීම — Overcoming all obstacles through compassion</div>
-      </div>
-
-    </div>
-
-    <div class="slide-dots" role="tablist" aria-label="Scene navigation">
-      <button class="slide-dot active" role="tab" aria-label="Scene 1"></button>
-      <button class="slide-dot" role="tab" aria-label="Scene 2"></button>
-      <button class="slide-dot" role="tab" aria-label="Scene 3"></button>
-      <button class="slide-dot" role="tab" aria-label="Scene 4"></button>
-    </div>
-
     <section class="story-text">
       <h2>🪷 කතාවේ සාරාංශය</h2>
-      <p>කුළාවක ජාතකය, කරුණාවේ පාරමිතාව විදහා දක්වන කතාවකි. බෝසතාණෝ වනයේ සත්වයෙකු ලෙස ඉපිද, සිය දිවි පරදුවට තබා අන් සත්වයන් ගින්නෙන් බේරා ගැනීමට ක්‍රියා කළහ.</p>
-      <p>මෙම ජාතකය තුළින් කරුණාව, දයාව, සහ පරාර්ථකාමීත්වයේ වැදගත්කම අවධාරණය කෙරේ. සියලු සත්වයන් කෙරෙහි දයාව දැක්වීම මිනිස් ජීවිතයේ උත්තම ගුණාංගයක් බව පෙන්වා දෙයි.</p>
-
+      <p>කුළාවක ජාතකය, කරුණාවේ පාරමිතාව විදහා දක්වන කතාවකි. බෝසතාණෝ වනයේ සත්වයෙකු ලෙස ඉපිද, සිය දිවි පරදුවට තබා අන් සත්වයන් ගින්නෙන් බේරා ගැනීමට ක්‍රියා කළහ. කරුණාව, දයාව, සහ පරාර්ථකාමීත්වයේ වැදගත්කම මෙම ජාතකය තුළින් අවධාරණය කෙරේ.</p>
       <hr style="border-color: rgba(224,123,16,0.2); margin: 1rem 0;" />
-
       <h2>📖 Summary in English</h2>
-      <p>The Kulaavaka Jataka illustrates the perfection of compassion (Mettā Pāramitā). The Bodhisatta, born as a forest creature, risked his own life to save other animals from a raging forest fire. This story teaches the importance of compassion, kindness, and selflessness towards all living beings.</p>
+      <p>The Kulaavaka Jataka illustrates compassion (Mettā Pāramitā). The Bodhisatta, born as a forest creature, risked his life to save others from a fire. This story teaches selflessness and kindness toward all beings.</p>
+      <div style="text-align:center; padding-top:1rem;">
+        <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Back to Main Menu</a>
+      </div>
     </section>
-
-    <div style="text-align:center; padding-bottom: 2rem;">
-      <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Back to Main Menu</a>
-    </div>
-
   </div>
 
-  <script src="../../assets/shared-js/lights.js"></script>
+  <script src="../../assets/shared-js/thorana-stage.js"></script>
   <script src="js/story.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@
   --r:         230px;
   --pw:        108px;
   --ph:        126px;
-  --petals:    11;
+  --petals:    7;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -255,7 +255,7 @@ body::before{
 }
 
 @media(max-width:600px){
-  :root{--r:165px;--pw:82px;--ph:96px;--petals:11}
+  :root{--r:165px;--pw:82px;--ph:96px;--petals:7}
   .lotus-wheel{width:calc(var(--r)*2);height:calc(var(--r)*2)}
   .outer-ring-deco{width:calc(var(--r)*2 + 120px);height:calc(var(--r)*2 + 120px)}
   .mid-ring-deco{width:calc(var(--r)*2 + 30px);height:calc(var(--r)*2 + 30px)}

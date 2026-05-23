@@ -1,36 +1,7 @@
 :root {
-  --frame-a:      #c0392b;
-  --frame-b:      #c8922a;
-  --frame-c:      #2a1210;
-  --frame-grad:   90deg;
-  --corner-deco:  '\u2726';
+  --accent-a:     #c0392b;
+  --accent-b:     #c8922a;
+  --ring-glow:    #c8922a;
+  --panel-bg:     #1a0a08;
+  --panel-glow:   rgba(200,146,42,0.2);
 }
-
-body {
-  background:
-    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(200,146,42,0.20) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(139,26,26,0.15) 0%, transparent 60%),
-    #0a0608;
-}
-
-.story-bg-glow {
-  background: radial-gradient(ellipse, rgba(200,146,42,0.15) 0%, transparent 70%);
-}
-
-.story-title {
-  color: #f5c842;
-  text-shadow:
-    0 0 40px rgba(245,200,66,0.6),
-    0 0 80px rgba(192,57,43,0.3);
-}
-
-.slide-placeholder {
-  background: linear-gradient(135deg, #2a1210 0%, #1a0d08 100%);
-  border: 1px dashed rgba(200,146,42,0.35);
-}
-
-.story-text {
-  background: linear-gradient(135deg, rgba(42,18,16,0.9) 0%, rgba(26,13,8,0.9) 100%);
-  border-color: rgba(200,146,42,0.3);
-}
-.story-text h2 { color: #f5c842; }
