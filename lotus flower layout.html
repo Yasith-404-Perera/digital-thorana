@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detailed Procedural White Lotus Flower</title>
+  <style>
+    /* Dark canvas to make the white lotus pop */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #121212;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Master Container */
+    .lotus-container {
+      position: relative;
+      width: 95vmin;
+      height: 95vmin;
+      max-width: 650px;
+      max-height: 650px;
+    }
+
+    /* Base Layer: Generic CSS Petal Blueprint */
+    .petal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      /* Generates the pointed leaf/petal curvature */
+      border-radius: 0 100% 0 100%;
+      box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* --- LAYER 1: Deepest Background Petals --- */
+    .background-petals .petal {
+      width: 44%;
+      height: 44%;
+      background: linear-gradient(135deg, #b0b0b0 0%, #8e8e8e 100%);
+      z-index: 1;
+    }
+
+    /* --- LAYER 2: Small Accent Side Petals --- */
+    .side-petals .petal {
+      width: 32%;
+      height: 32%;
+      background: linear-gradient(135deg, #cdcdcd 0%, #a6a6a6 100%);
+      z-index: 2;
+    }
+
+    /* --- LAYER 3: Main Foreground White Petals (The largest layer) --- */
+    .main-petals .petal {
+      width: 46%;
+      height: 46%;
+      background: linear-gradient(135deg, #ffffff 0%, #eaeaea 100%);
+      border-left: 1px solid rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      z-index: 3;
+    }
+
+    /* --- LAYER 4: Clear & Large Photo Containers --- */
+    .photo-node {
+      position: absolute;
+      width: 22%; /* Enlarged base size so details are cleanly readable */
+      height: 22%;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #2a2a2a;
+      border: 4px solid #ffffff;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      z-index: 4; /* Sits perfectly centered over each main front petal */
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .photo-node img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* Hover animation pops the photo up slightly */
+    .photo-node:hover {
+      transform: translate(-50%, -50%) scale(1.18) !important;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+      z-index: 10;
+    }
+
+    /* --- LAYER 5: Central Crown Core (Sahasrara Overlay) --- */
+    .lotus-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%;
+      height: 30%;
+      background: radial-gradient(circle, #9d4edd 0%, #3c096c 100%);
+      border: 4px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(157, 78, 221, 0.5);
+      z-index: 5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="lotus-container">
+    <!-- Built structural layers -->
+    <div class="background-petals" id="layerBackground"></div>
+    <div class="side-petals" id="layerSide"></div>
+    <div class="main-petals" id="layerMain"></div>
+
+    <!-- Active Content Slots (Swap 'src' properties with your final filenames) -->
+    <div id="photoLayer">
+      <div class="photo-node"><img src="your-photo-1.jpg" alt="Image 1"></div>
+      <div class="photo-node"><img src="your-photo-2.jpg" alt="Image 2"></div>
+      <div class="photo-node"><img src="your-photo-3.jpg" alt="Image 3"></div>
+      <div class="photo-node"><img src="your-photo-4.jpg" alt="Image 4"></div>
+      <div class="photo-node"><img src="your-photo-5.jpg" alt="Image 5"></div>
+      <div class="photo-node"><img src="your-photo-6.jpg" alt="Image 6"></div>
+    </div>
+
+    <!-- Centerpiece Anchor -->
+    <div class="lotus-core"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const bgLayer = document.getElementById('layerBackground');
+      const sideLayer = document.getElementById('layerSide');
+      const mainLayer = document.getElementById('layerMain');
+      const photos = document.querySelectorAll('.photo-node');
+      
+      const segments = 6; 
+
+      for (let i = 0; i < segments; i++) {
+        const angle = i * 60; // 60-degree increments for a uniform hexagonal ring
+
+        // 1. Render Layer 1: Darker Outer Background Petals (Offset by 30 degrees)
+        const bgPetal = document.createElement('div');
+        bgPetal.className = 'petal';
+        bgPetal.style.transform = `translate(-50%, -50%) rotate(${angle + 30 + 135}deg)`;
+        bgLayer.appendChild(bgPetal);
+
+        // 2. Render Layer 2: Small Accent Side Petals (Offset by 15 and -15 degrees to frame the main ones)
+        const sidePetalA = document.createElement('div');
+        sidePetalA.className = 'petal';
+        sidePetalA.style.transform = `translate(-50%, -50%) rotate(${angle + 15 + 135}deg)`;
+        sideLayer.appendChild(sidePetalA);
+
+        const sidePetalB = document.createElement('div');
+        sidePetalB.className = 'petal';
+        sidePetalB.style.transform = `translate(-50%, -50%) rotate(${angle - 15 + 135}deg)`;
+        sideLayer.appendChild(sidePetalB);
+
+        // 3. Render Layer 3: Main Massive White Foreground Petals
+        const mainPetal = document.createElement('div');
+        mainPetal.className = 'petal';
+        mainPetal.style.transform = `translate(-50%, -50%) rotate(${angle + 135}deg)`;
+        mainLayer.appendChild(mainPetal);
+      }
+
+      // 4. Position Photos cleanly over the center mass of the Main Foreground Petals
+      const radius = 29; // Pushes photos out far enough to sit visibly inside the petal bodies
+      
+      photos.forEach((photo, index) => {
+        // -90 degrees aligns node 1 directly North (12 o'clock position)
+        const radians = ((index * 60) - 90) * (Math.PI / 180);
+        
+        const x = 50 + radius * Math.cos(radians);
+        const y = 50 + radius * Math.sin(radians);
+
+        photo.style.left = `${x}%`;
+        photo.style.top = `${y}%`;
+        photo.style.transform = "translate(-50%, -50%)";
+      });
+    });
+  </script>
+</body>
+</html>

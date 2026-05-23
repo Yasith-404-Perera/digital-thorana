@@ -1,0 +1,21 @@
+{
+  "name": "digital-thorana",
+  "version": "1.0.0",
+  "description": "A pure HTML/CSS/JS digital Vesak thorana (pandal) featuring Jataka tales arranged on a rotating lotus wheel. Each petal links to a story page with an animated Buddhist frame, chasing/flickering lights, and a slideshow or video of the tale.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yasith-404-Perera/digital-thorana.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Yasith-404-Perera/digital-thorana/issues"
+  },
+  "homepage": "https://github.com/Yasith-404-Perera/digital-thorana#readme"
+}
