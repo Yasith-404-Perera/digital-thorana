@@ -8,18 +8,20 @@
   const count = panels.length;
   const angleStep = 360 / count;
 
-  const sceneTimeline = [
-    { start: 0, end: 20 },
-    { start: 20, end: 52 },
-    { start: 52, end: 78 },
-    { start: 78, end: 104 },
-    { start: 104, end: 130 },
-    { start: 130, end: 161 },
-  ];
-
+  let sceneTimeline = [];
   let currentScene = -1;
 
+  function buildTimeline(duration) {
+    const seg = duration / count;
+    sceneTimeline = [];
+    for (let i = 0; i < count; i++) {
+      sceneTimeline.push({ start: Math.round(i * seg), end: Math.round((i + 1) * seg) });
+    }
+    sceneTimeline[count - 1].end = Math.ceil(duration);
+  }
+
   function updateScene(time) {
+    if (!sceneTimeline.length) return;
     let nextScene = -1;
     for (let i = 0; i < sceneTimeline.length; i++) {
       if (time >= sceneTimeline[i].start && time < sceneTimeline[i].end) {
@@ -53,6 +55,7 @@
     });
   }
 
+  audio.addEventListener('loadedmetadata', () => buildTimeline(audio.duration));
   audio.addEventListener('timeupdate', () => updateScene(audio.currentTime));
   audio.addEventListener('play', () => updateScene(audio.currentTime));
 
@@ -65,6 +68,7 @@
     currentScene = -1;
   });
 
+  if (audio.readyState >= 1) buildTimeline(audio.duration);
   updateScene(0);
 
   audio.play().catch(() => {

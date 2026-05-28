@@ -1,5 +1,22 @@
 document.getElementById('yr').textContent = new Date().getFullYear();
 
+/* ── TWINKLE DOTS ── */
+(function initDots() {
+  const dots = 40;
+  for (let i = 0; i < dots; i++) {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    const size = 1.5 + Math.random() * 2.5;
+    dot.style.cssText = `
+      width:${size}px;height:${size}px;
+      left:${Math.random()*100}%;top:${Math.random()*100}%;
+      --dur:${2+Math.random()*3}s;
+      animation-delay:${Math.random()*4}s;
+    `;
+    document.body.appendChild(dot);
+  }
+})();
+
 /* ── PARTICLE SYSTEM ── */
 (function initParticles() {
   const canvas = document.getElementById('particleCanvas');
@@ -111,28 +128,47 @@ document.getElementById('yr').textContent = new Date().getFullYear();
   if (!photos.length || !container) return;
 
   const RADIUS_PCT = 29;
-  const PERIOD = 35000; // 35s to match CSS petal spin
+  const PERIOD = 35000;
+  let paused = false;
+  let lastTime = 0;
+  let totalOffset = 0;
+
+  photos.forEach(photo => {
+    photo.addEventListener('mouseenter', () => {
+      paused = true;
+      container.classList.add('paused');
+    });
+    photo.addEventListener('mouseleave', () => {
+      paused = false;
+      container.classList.remove('paused');
+    });
+  });
 
   function frame(now) {
-    const elapsed = (now || performance.now()) % PERIOD;
-    const offsetRad = -(elapsed / PERIOD) * 2 * Math.PI; // counter-clockwise
+    if (!lastTime) lastTime = now;
 
-    const w = container.offsetWidth;
-    const h = container.offsetHeight;
-    const r = Math.min(w, h) * (RADIUS_PCT / 100);
-    const cx = w / 2;
-    const cy = h / 2;
+    if (!paused) {
+      const dt = now - lastTime;
+      totalOffset = (totalOffset + dt) % PERIOD;
+      const offsetRad = -(totalOffset / PERIOD) * 2 * Math.PI;
 
-    for (let i = 0; i < photos.length; i++) {
-      const baseAngle = ((i * 60) - 90) * (Math.PI / 180);
-      const total = baseAngle + offsetRad;
-      const x = (cx + Math.cos(total) * r) / w * 100;
-      const y = (cy + Math.sin(total) * r) / h * 100;
-      photos[i].style.left = x + '%';
-      photos[i].style.top  = y + '%';
-      photos[i].style.transform = 'translate(-50%,-50%)';
+      const w = container.offsetWidth;
+      const h = container.offsetHeight;
+      const r = Math.min(w, h) * (RADIUS_PCT / 100);
+      const cx = w / 2;
+      const cy = h / 2;
+
+      for (let i = 0; i < photos.length; i++) {
+        const baseAngle = ((i * 60) - 90) * (Math.PI / 180);
+        const total = baseAngle + offsetRad;
+        const x = (cx + Math.cos(total) * r) / w * 100;
+        const y = (cy + Math.sin(total) * r) / h * 100;
+        photos[i].style.left = x + '%';
+        photos[i].style.top  = y + '%';
+      }
     }
 
+    lastTime = now;
     requestAnimationFrame(frame);
   }
 
@@ -145,7 +181,7 @@ document.querySelectorAll('.photo-node').forEach(node => {
   node.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
     e.preventDefault();
-    this.style.transform = 'translate(-50%,-50%) scale(1.3) !important';
+    this.style.transform = 'translate(-50%,-50%) scale(1.3)';
     setTimeout(() => { window.location.href = href; }, 200);
   });
 });

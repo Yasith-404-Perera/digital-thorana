@@ -12,10 +12,9 @@
 </head>
 <body>
 
-  <div class="thorana-stage">
+  <div class="thorana-stage" data-disable-chase>
     <div class="stage-inner" id="stageInner">
 
-      <!-- ARCH BACKGROUND -->
       <div class="arch-bg" aria-hidden="true">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none">
           <path class="arch-line" d="M 20 85 C 20 30, 80 30, 80 85" />
@@ -26,7 +25,6 @@
         </svg>
       </div>
 
-      <!-- AURA RINGS -->
       <div class="aura-container" aria-hidden="true">
         <div class="aura-ring aura-1"></div>
         <div class="aura-ring aura-2"></div>
@@ -35,97 +33,59 @@
         <div class="aura-ring aura-5"></div>
       </div>
 
-      <!-- CENTER FIGURE -->
-      <div class="center-figure" aria-label="Buddha">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Buddha_meditating.jpg/256px-Buddha_meditating.jpg"
-          alt="Buddha" onerror="this.style.display='none'" />
-      </div>
+      <div class="center-figure" aria-label="Buddha"></div>
 
-      <!-- NARRATIVE PANEL RING — 8 panels, alternating diamond/square -->
       <div class="panel-ring">
-        <!-- Top — diamond -->
         <div class="narrative-panel diamond" data-scene="1" style="--i:0">
           <div class="panel-outer">
             <div class="panel-inner">
               <span class="panel-badge">1</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/040_Vessantara_Jataka_2024-12-10.jpg/320px-040_Vessantara_Jataka_2024-12-10.jpg"
-                alt="Scene 1" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/040_Vessantara_Jataka_2024-12-10.jpg/320px-040_Vessantara_Jataka_2024-12-10.jpg" alt="Scene 1" />
             </div>
           </div>
         </div>
-        <!-- Top-right — square -->
         <div class="narrative-panel square" data-scene="2" style="--i:1">
           <div class="panel-outer">
             <div class="panel-inner">
               <span class="panel-badge">2</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/White_elephant.jpg/320px-White_elephant.jpg"
-                alt="Scene 2" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/White_elephant.jpg/320px-White_elephant.jpg" alt="Scene 2" />
             </div>
           </div>
         </div>
-        <!-- Right — diamond -->
         <div class="narrative-panel diamond" data-scene="3" style="--i:2">
           <div class="panel-outer">
             <div class="panel-inner">
               <span class="panel-badge">3</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Prince_Siddhartha.jpg/320px-Prince_Siddhartha.jpg"
-                alt="Scene 3" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Prince_Siddhartha.jpg/320px-Prince_Siddhartha.jpg" alt="Scene 3" />
             </div>
           </div>
         </div>
-        <!-- Bottom-right — square -->
         <div class="narrative-panel square" data-scene="4" style="--i:3">
           <div class="panel-outer">
             <div class="panel-inner">
               <span class="panel-badge">4</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Forest_landscape.jpg/320px-Forest_landscape.jpg"
-                alt="Scene 4" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Forest_landscape.jpg/320px-Forest_landscape.jpg" alt="Scene 4" />
             </div>
           </div>
         </div>
-        <!-- Bottom — diamond -->
         <div class="narrative-panel diamond" data-scene="5" style="--i:4">
           <div class="panel-outer">
             <div class="panel-inner">
               <span class="panel-badge">5</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Sacrifice_relief.jpg/320px-Sacrifice_relief.jpg"
-                alt="Scene 5" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Sacrifice_relief.jpg/320px-Sacrifice_relief.jpg" alt="Scene 5" />
             </div>
           </div>
         </div>
-        <!-- Bottom-left — square -->
         <div class="narrative-panel square" data-scene="6" style="--i:5">
           <div class="panel-outer">
             <div class="panel-inner">
               <span class="panel-badge">6</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Ancient_art.jpg/320px-Ancient_art.jpg"
-                alt="Scene 6" />
-            </div>
-          </div>
-        </div>
-        <!-- Left — diamond -->
-        <div class="narrative-panel diamond" data-scene="7" style="--i:6">
-          <div class="panel-outer">
-            <div class="panel-inner">
-              <span class="panel-badge">7</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Family_reunion_painting.jpg/320px-Family_reunion_painting.jpg"
-                alt="Scene 7" />
-            </div>
-          </div>
-        </div>
-        <!-- Top-left — square -->
-        <div class="narrative-panel square" data-scene="8" style="--i:7">
-          <div class="panel-outer">
-            <div class="panel-inner">
-              <span class="panel-badge">8</span>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Buddhist_dhamma.jpg/320px-Buddhist_dhamma.jpg"
-                alt="Scene 8" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Ancient_art.jpg/320px-Ancient_art.jpg" alt="Scene 6" />
             </div>
           </div>
         </div>
       </div>
 
-      <!-- DHARMA WHEELS -->
       <div class="dharma-wheel left" aria-hidden="true">
         <span class="spoke"></span><span class="spoke"></span>
         <span class="spoke"></span><span class="spoke"></span>
@@ -145,7 +105,6 @@
         <span class="rim-dot"></span><span class="rim-dot"></span>
       </div>
 
-      <!-- FOOTER -->
       <div class="thorana-footer">
         <div class="footer-left">
           <div class="footer-emblem">☸</div>
@@ -161,8 +120,8 @@
         </div>
       </div>
 
-    </div><!-- /stage-inner -->
-  </div><!-- /thorana-stage -->
+    </div>
+  </div>
 
   <div class="thorana-content">
     <a class="back-btn" href="../../index.html">← ප්‍රධාන පිටුවට / Main Menu</a>
@@ -180,6 +139,11 @@
     </section>
   </div>
 
+  <audio id="storyAudio" preload="auto" controls style="display:none; position:fixed; bottom:10px; left:50%; transform:translateX(-50%); z-index:999; width:300px; opacity:0.9;">
+    <source src="../../assets/audio/wessanthara.mp4" type="audio/mp4" />
+  </audio>
+
   <script src="../../assets/shared-js/thorana-stage.js"></script>
+  <script src="js/story.js"></script>
 </body>
 </html>
