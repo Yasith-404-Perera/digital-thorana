@@ -293,3 +293,9 @@ body::before{
   .photo-node{width:18%}
   .photo-label{font-size:.4rem;bottom:-1.4rem}
 }
+#6-cover{
+  width:50%;height:100%;
+  object-fit:cover;
+  display:block;
+  filter:brightness(.9) saturate(1.05);
+}

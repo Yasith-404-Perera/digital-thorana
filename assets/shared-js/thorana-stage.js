@@ -33,16 +33,19 @@
   window.addEventListener('resize', positionPanels);
 
   /* ── CHASE LIGHT ANIMATION ── */
-  let chaseIndex = 0;
-  const CHASE_INTERVAL = 600;
+  const chaseDisabled = stage.closest('.thorana-stage')?.hasAttribute('data-disable-chase');
+  if (!chaseDisabled) {
+    let chaseIndex = 0;
+    const CHASE_INTERVAL = 600;
 
-  setInterval(() => {
-    panels.forEach(p => p.classList.remove('active-glow'));
-    if (panels.length) {
-      panels[chaseIndex].classList.add('active-glow');
-      chaseIndex = (chaseIndex + 1) % panels.length;
-    }
-  }, CHASE_INTERVAL);
+    setInterval(() => {
+      panels.forEach(p => p.classList.remove('active-glow'));
+      if (panels.length) {
+        panels[chaseIndex].classList.add('active-glow');
+        chaseIndex = (chaseIndex + 1) % panels.length;
+      }
+    }, CHASE_INTERVAL);
+  }
 
   /* ── SVG ARCH ANIMATION ── */
   const archLines = stage.querySelectorAll('.arch-line');
